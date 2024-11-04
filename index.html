@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+</head>
+<body>
+    <h1>Dice Roller</h1>
+
+    <!-- Dropdown menu for dice selection -->
+    <label for="dice">Choose a dice:</label>
+    <select id="dice">
+        <option value="4">D4</option>
+        <option value="6">D6</option>
+        <option value="8">D8</option>
+        <option value="10">D10</option>
+        <option value="12">D12</option>
+        <option value="20">D20</option>
+        <option value="100">D100</option>
+    </select>
+
+    <!-- Button to roll the dice -->
+    <button onclick="rollDice()">Roll Dice</button>
+
+    <!-- Display result -->
+    <p id="result"></p>
+
+    <script>
+        function rollDice() {
+            // Get the selected dice size from the dropdown
+            const dice = parseInt(document.getElementById("dice").value);
+            
+            // Generate a random roll between 1 and the selected dice size
+            const roll = Math.floor(Math.random() * dice) + 1;
+
+            // Display the result
+            document.getElementById("result").textContent = `The dice rolled a ${roll}.`;
+        }
+    </script>
+</body>
+</html>
